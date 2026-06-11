@@ -380,7 +380,7 @@ function pageUrl(int $p): string
 
 <body>
 
-  <h1>📋 실거래가 데이터 목록</h1>
+  <h1>실거래가 데이터 목록</h1>
   <p class="desc">
     수집된 실거래가 데이터를 확인합니다.
     <a href="manual_collect.php" class="link-manual">→ 수동 수집 실행</a>

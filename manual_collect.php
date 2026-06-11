@@ -329,7 +329,7 @@ $prevYm  = date('Ym', strtotime('-1 month'));
 
   <?php if ($result): ?>
     <div class="card result">
-      <h2>📊 수집 결과</h2>
+      <h2>수집 결과</h2>
       <?php if ($result['stats']): ?>
         <div class="stats">
           <div class="stat inserted">
