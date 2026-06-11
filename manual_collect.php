@@ -235,6 +235,36 @@ $prevYm  = date('Ym', strtotime('-1 month'));
 </head>
 
 <body>
+  <div id="loading-overlay" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 9999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.1rem;
+  gap: 16px;
+">
+    <div style="
+    width: 48px; height: 48px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  "></div>
+    <div>수집 중입니다... 잠시만 기다려주세요</div>
+    <style>
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </div>
 
   <h1>수동 수집 실행</h1>
   <p class="desc">수집 실행 후 결과를 확인할 수 있습니다. 대량 수집 시 시간이 걸릴 수 있습니다.</p>
@@ -359,8 +389,14 @@ $prevYm  = date('Ym', strtotime('-1 month'));
       el.classList.add('active');
       document.getElementById('panel-' + name).classList.add('active');
     }
-  </script>
 
+    // 폼 제출 시 로딩 표시
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function() {
+        document.getElementById('loading-overlay').style.display = 'flex';
+      });
+    });
+  </script>
 </body>
 
 </html>
