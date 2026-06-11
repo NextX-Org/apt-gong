@@ -111,7 +111,12 @@ class ApiClient
       usleep(API_DELAY_MS * 1000);
     } while (count($allItems) < $totalCount);
 
-    return $allItems;
+    return [
+      'items'       => $allItems,
+      'total_count' => $totalCount,
+      'result_code' => '000',
+      'result_msg'  => 'OK',
+    ];
   }
 
   /**
